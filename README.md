@@ -1,23 +1,29 @@
 # CLPVerticalButton
 
-[![CI Status](http://img.shields.io/travis/Alekseenko Oleg/CLPVerticalButton.svg?style=flat)](https://travis-ci.org/Alekseenko Oleg/CLPVerticalButton)
-[![Version](https://img.shields.io/cocoapods/v/CLPVerticalButton.svg?style=flat)](http://cocoapods.org/pods/CLPVerticalButton)
-[![License](https://img.shields.io/cocoapods/l/CLPVerticalButton.svg?style=flat)](http://cocoapods.org/pods/CLPVerticalButton)
-[![Platform](https://img.shields.io/cocoapods/p/CLPVerticalButton.svg?style=flat)](http://cocoapods.org/pods/CLPVerticalButton)
+Custom UIButton subclass to for vertical (image text) layout;
+
+![Screenshot](Screenshots/shot.png)
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To enable vertical mode 
 
-## Requirements
+```objective-c
+CLPVerticalButton * button = [[CLPVerticalButton alloc] init];
+button.verticalMode = YES;
+```
+
+or though Interface Builder
+
 
 ## Installation
 
-CLPVerticalButton is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod "CLPVerticalButton"
+source 'https://github.com/alekoleg/AOSpec.git'
+
+pod "CLPVerticalButton", '~> 0.0.1'
 ```
 
 ## Author
