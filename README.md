@@ -2,7 +2,7 @@
 
 Custom UIButton subclass to for vertical (image text) layout;
 
-![Screenshot](Screenshots/shot.png)
+![Screenshot](Screenshot/shot.png)
 
 ## Usage
 
