@@ -33,7 +33,7 @@
     [button setTitle:@"Upload Image" forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"addCircle"] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
+    button.contentMode = UIViewContentModeRight;
     [self.view addSubview:button];
 }
 

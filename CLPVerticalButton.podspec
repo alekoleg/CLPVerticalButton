@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CLPVerticalButton"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "CLPVerticalButton."
   s.description      = "Custom Vertical Button"
   s.homepage         = "https://github.com/alekoleg/CLPVerticalButton"

@@ -12,19 +12,36 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.verticalMargin = 20.0;
+        [self setup];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self setup];
     }
     return self;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self setup];
+}
+
+- (void)setup {
     self.verticalMargin = 20.0;
 }
 
+#pragma mark - Actions -
 
 - (void)setVerticalMargin:(CGFloat)verticalMargin {
     _verticalMargin = verticalMargin;
+    [self setNeedsLayout];
+}
+
+- (void)setContentMode:(UIViewContentMode)contentMode {
+    [super setContentMode:contentMode];
     [self setNeedsLayout];
 }
 
@@ -49,14 +66,26 @@
             CGRect frame = self.imageView.frame;
             frame.origin.y = offset;
             frame.size = image.size;
-            frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
+            if (self.contentMode == UIViewContentModeLeft) {
+                frame.origin.x = 0;
+            } else if (self.contentMode == UIViewContentModeRight){
+                frame.origin.x = self.frame.size.width - frame.size.width;
+            } else {
+                frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
+            }
             frame;
         });
         
         self.titleLabel.frame = ({
             CGRect frame = self.titleLabel.frame;
             frame.size = textSize;
-            frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
+            if (self.contentMode == UIViewContentModeLeft) {
+                frame.origin.x = 0;
+            } else if (self.contentMode == UIViewContentModeRight){
+                frame.origin.x = self.frame.size.width - frame.size.width;
+            } else {
+                frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
+            }
             frame.origin.y = (self.imageView.frame.origin.y + self.imageView.frame.size.height) + self.verticalMargin;
             frame;
         });
