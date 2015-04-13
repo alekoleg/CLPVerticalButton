@@ -30,6 +30,7 @@
 }
 
 - (void)setup {
+    self.verticalMode = YES;
     self.verticalMargin = 20.0;
 }
 
@@ -50,6 +51,12 @@
     [super layoutSubviews];
     
     if (self.verticalMode) {
+        
+        if (self.multiLines) {
+            self.titleLabel.numberOfLines = 0;
+            self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        }
+        
         NSString *string = [self titleForState:self.state];
         if (!string) {
             string = [self titleForState:UIControlStateNormal];
@@ -59,7 +66,8 @@
             image = [self imageForState:UIControlStateNormal];
         }
        
-        CGSize textSize = [string boundingRectWithSize:CGSizeMake(self.frame.size.width, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine attributes:@{ NSFontAttributeName : self.titleLabel.font} context:NULL].size;
+        NSStringDrawingOptions options = (self.multiLines) ? NSStringDrawingUsesLineFragmentOrigin : NSStringDrawingTruncatesLastVisibleLine;
+        CGSize textSize = [string boundingRectWithSize:CGSizeMake(self.frame.size.width, MAXFLOAT) options:options attributes:@{ NSFontAttributeName : self.titleLabel.font} context:NULL].size;
         CGFloat offset = (self.frame.size.height - image.size.height - self.verticalMargin - textSize.height) / 2;
         
         self.imageView.frame = ({

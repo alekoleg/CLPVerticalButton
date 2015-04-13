@@ -10,7 +10,8 @@
 
 @interface CLPVerticalButton : UIButton
 
-@property (nonatomic, assign) IBInspectable CGFloat verticalMargin;
+@property (nonatomic, assign) IBInspectable BOOL multiLines;
 @property (nonatomic, assign) IBInspectable BOOL verticalMode;
+@property (nonatomic, assign) IBInspectable CGFloat verticalMargin;
 
 @end
